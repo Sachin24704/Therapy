@@ -1,35 +1,43 @@
 "use client";
-import React, { useEffect, useState } from "react";
 
-export default function Login() {
+import { useEffect, useState } from "react";
+
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const handleChange = (e) => {
-    e.target.value;
+    if (e.target.name === "email") setEmail(e.target.value);
+    else setpassword(e.target.value);
   };
-  const handleSubmit = function () {
-    console.log(email, password);
+  const handleSubmit = () => {
+    console.log("hi");
   };
   return (
     <>
-      <h1>hi mom</h1>
+      <h1>hi </h1>
       <div className="flex border bg-slate-800 content-center">
-        <form onSubmit={handleSubmit} className="flex flex-col">
+        <form className="flex flex-col">
           <input
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleChange}
             className=""
-            lable="Email"
+            name="email"
+            placeholder="Email"
             value={email}
           />
           <br />
           <input
-            onChange={(e) => setpassword(e.target.value)}
+            onChange={handleChange}
             className=""
-            lable="password"
+            name="password"
+            placeholder="password"
             value={password}
           />
+          <button onClick={handleSubmit} className="">
+            login{" "}
+          </button>
         </form>
       </div>
     </>
   );
-}
+};
+export default Login;
