@@ -2,13 +2,13 @@
 import React, { useEffect, useState } from "react";
 
 export default function Login() {
-  const [email, setEmail] = useState();
-  const [password, setpassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setpassword] = useState("");
   const handleChange = (e) => {
     e.target.value;
   };
   const handleSubmit = function () {
-    return;
+    console.log(email, password);
   };
   return (
     <>
@@ -21,6 +21,7 @@ export default function Login() {
             lable="Email"
             value={email}
           />
+          <br />
           <input
             onChange={(e) => setpassword(e.target.value)}
             className=""
