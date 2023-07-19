@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +11,8 @@ const Login = () => {
     else setpassword(e.target.value);
   };
   const handleSubmit = () => {
-    console.log("hi");
+    console.log(hi);
+    router.push("/signup");
   };
   return (
     <>
@@ -37,6 +39,7 @@ const Login = () => {
           </button>
         </form>
       </div>
+      <Link href="/signup"> signup</Link>
     </>
   );
 };
