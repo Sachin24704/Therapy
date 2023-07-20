@@ -18,7 +18,7 @@ const Login = () => {
     <>
       <h1>hi </h1>
       <div className="flex border bg-slate-800 content-center">
-        <form className="flex flex-col">
+        <form onSubmit={handleSubmit} className="flex flex-col">
           <input
             onChange={handleChange}
             className=""
@@ -34,7 +34,7 @@ const Login = () => {
             placeholder="password"
             value={password}
           />
-          <button onClick={handleSubmit} className="">
+          <button type="submit" className="">
             login{" "}
           </button>
         </form>
