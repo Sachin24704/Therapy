@@ -10,11 +10,11 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 
-const Login = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const router = useRouter();
-  const provider = GoogleAuthProvider();
+  const provider = new GoogleAuthProvider();
   const handleChange = (e) => {
     if (e.target.name === "email") setEmail(e.target.value);
     else setpassword(e.target.value);
@@ -27,11 +27,11 @@ const Login = () => {
       const user = await createUserWithEmailAndPassword(auth, email, password);
       console.log(user);
     } catch (error) {
-      console.log("error", error);
+      console.error("error", error);
     }
     // TODO: implement authentication
 
-    router.push("/signup");
+    router.push("/login");
   };
   const signInWithGoogle = async () => {
     try {
@@ -39,13 +39,19 @@ const Login = () => {
       const user = await signInWithPopup(auth, provider);
       console.log(user);
     } catch (error) {
-      console.log("error", error);
+      console.error("error", error);
     }
   };
   return (
     <>
       <h1>hi </h1>
-      <div className="flex border bg-slate-800 content-center">
+      <div className="flex flex-col border bg-slate-800 content-center">
+        <button
+          onClick={signInWithGoogle}
+          className="cursor-pointer bg-blue-600 "
+        >
+          Sign In With Google
+        </button>
         <form onSubmit={handleSubmit} className="flex flex-col">
           <input
             onChange={handleChange}
@@ -63,12 +69,12 @@ const Login = () => {
             value={password}
           />
           <button type="submit" className="">
-            login{" "}
+            Signup{" "}
           </button>
         </form>
       </div>
-      <Link href="/signup"> signup</Link>
+      <Link href="/login"> Login</Link>
     </>
   );
 };
-export default Login;
+export default Signup;
