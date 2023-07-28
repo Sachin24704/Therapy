@@ -16,7 +16,7 @@ export default function useFirebaseAuth() {
   const [authUser, setAuthUser] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
 
-  useEffect((user) => {
+  const authStateChanged = async (user) => {
     isLoading(true);
     if (!user) {
       clear();
@@ -28,7 +28,12 @@ export default function useFirebaseAuth() {
       email: user?.email,
       username: user?.displayName,
     });
-    isLoading(false);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, authStateChanged);
+    return () => unsubscribe();
   }, []);
 }
 
