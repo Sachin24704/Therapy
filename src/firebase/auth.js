@@ -37,10 +37,23 @@ export default function useFirebaseAuth() {
   }, []);
 }
 
+export const signout = async function () {
+  authSignOut(auth)
+    .then(() => clear)
+    .catch((error) => console.error(error));
+
+  return {
+    isLoading,
+    authUser,
+    setAuthUser,
+    signout,
+  };
+};
 //function
 export const AuthUserProvider = ({ children }) => {
+  const auth = useFirebaseAuth();
   return (
-    <AuthUserContext.provider value={{}}>{children}</AuthUserContext.provider>
+    <AuthUserContext.provider value={auth}>{children}</AuthUserContext.provider>
   );
 };
 
