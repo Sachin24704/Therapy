@@ -5,16 +5,16 @@ import { auth } from "firebase";
 //global state management
 const AuthUserContext = new createContext({ authUser: null, isLoading: true });
 
-const clear = () => {
-  setAuthUser(null);
-  isLoading(false);
-};
-
 // method to pass values in context provider
 
 export default function useFirebaseAuth() {
   const [authUser, setAuthUser] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
+
+  const clear = () => {
+    setAuthUser(null);
+    setIsLoading(false);
+  };
 
   const authStateChanged = async (user) => {
     isLoading(true);
