@@ -5,13 +5,13 @@ import { onAuthStateChanged, signOut as authSignOut } from "firebase/auth";
 import { auth } from "./firebase";
 
 //global state management
-const AuthUserContext = new createContext({ authUser: null, isLoading: true });
+const AuthUserContext = createContext({ authUser: null, isLoading: true });
 
 // method to pass values in context provider
 
 export default function useFirebaseAuth() {
   const [authUser, setAuthUser] = useState({});
-  const [isLoading, setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const clear = () => {
     setAuthUser(null);
@@ -44,14 +44,14 @@ export default function useFirebaseAuth() {
     return () => unsubscribe();
   }, []);
 
-  return [isLoading, authUser, setAuthUser, signout];
+  return { isLoading, authUser, setAuthUser, signout };
 }
 
 //function
 export const AuthUserProvider = ({ children }) => {
   const auth = useFirebaseAuth();
   return (
-    <AuthUserContext.provider value={auth}>{children}</AuthUserContext.provider>
+    <AuthUserContext.Provider value={auth}>{children}</AuthUserContext.Provider>
   );
 };
 
