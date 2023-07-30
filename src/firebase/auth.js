@@ -1,6 +1,8 @@
+"use client";
+
 import { useContext, createContext, useState, useEffect } from "react";
 import { onAuthStateChanged, signOut as authSignOut } from "firebase/auth";
-import { auth } from "firebase";
+import { auth } from "./firebase";
 
 //global state management
 const AuthUserContext = new createContext({ authUser: null, isLoading: true });
@@ -8,7 +10,7 @@ const AuthUserContext = new createContext({ authUser: null, isLoading: true });
 // method to pass values in context provider
 
 export default function useFirebaseAuth() {
-  const [authUser, setAuthUser] = useState(null);
+  const [authUser, setAuthUser] = useState({});
   const [isLoading, setIsLoading] = useState(null);
 
   const clear = () => {
@@ -17,7 +19,7 @@ export default function useFirebaseAuth() {
   };
 
   const authStateChanged = async (user) => {
-    isLoading(true);
+    setIsLoading(true);
     if (!user) {
       clear();
 
@@ -31,24 +33,20 @@ export default function useFirebaseAuth() {
     setIsLoading(false);
   };
 
+  const signout = async function () {
+    authSignOut(auth)
+      .then(() => clear)
+      .catch((error) => console.error(error));
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, authStateChanged);
     return () => unsubscribe();
   }, []);
+
+  return [isLoading, authUser, setAuthUser, signout];
 }
 
-export const signout = async function () {
-  authSignOut(auth)
-    .then(() => clear)
-    .catch((error) => console.error(error));
-
-  return {
-    isLoading,
-    authUser,
-    setAuthUser,
-    signout,
-  };
-};
 //function
 export const AuthUserProvider = ({ children }) => {
   const auth = useFirebaseAuth();
