@@ -25,6 +25,7 @@ export default function useFirebaseAuth() {
 
       return;
     }
+    // I am taking details from auth and puthing into the context variable.
     setAuthUser({
       uid: user?.uid,
       email: user?.email,
@@ -47,7 +48,7 @@ export default function useFirebaseAuth() {
   return { isLoading, authUser, setAuthUser, signout };
 }
 
-//function
+//when I use AuthUserProvider the context variables will be available to those components.
 export const AuthUserProvider = ({ children }) => {
   const auth = useFirebaseAuth();
   return (
