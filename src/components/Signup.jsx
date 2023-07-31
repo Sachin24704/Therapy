@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Loader from "./loader";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { auth } from "@/firebase/firebase";
@@ -9,12 +10,23 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+import { useAuth } from "@/firebase/auth";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const router = useRouter();
   const provider = new GoogleAuthProvider();
+
+  const { isLoading, authUser } = useAuth();
+
+  useEffect(() => {
+    // redirect to home page when authenticated
+    if (!isLoading && authUser) {
+      setTimeout(() => router.push("/home"), 2500);
+    }
+  }, [isLoading, authUser]);
+
   const handleChange = (e) => {
     if (e.target.name === "email") setEmail(e.target.value);
     else setpassword(e.target.value);
@@ -42,7 +54,9 @@ const Signup = () => {
       console.error("error", error);
     }
   };
-  return (
+  return isLoading || (!isLoading && authUser) ? (
+    <Loader />
+  ) : (
     <>
       <h1>hi </h1>
       <div className="flex flex-col border bg-slate-800 content-center">

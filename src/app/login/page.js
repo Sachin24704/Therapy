@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/firebase/auth";
 
 import Link from "next/link";
+import Loader from "@/components/loader";
 // import Loader from "@/components/Loader";
 
 const Login = () => {
@@ -28,7 +29,7 @@ const Login = () => {
 
   useEffect(() => {
     // redirect to home page when authenticated
-    if (!isLoading && !!authUser) {
+    if (!isLoading && authUser) {
       setTimeout(() => router.push("/home"), 2500);
     }
   }, [isLoading, authUser]);
@@ -52,7 +53,7 @@ const Login = () => {
   };
 
   return isLoading || (!isLoading && authUser) ? (
-    "loading"
+    <Loader />
   ) : (
     <main className="flex lg:h-[100vh]">
       <div className="w-full lg:w-[60%] p-8 md:p-14 flex items-center justify-center lg:justify-start">
