@@ -14,16 +14,24 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/firebase/auth";
 
 import Link from "next/link";
 // import Loader from "@/components/Loader";
-
-const Provider = new GoogleAuthProvider();
 
 const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const Provider = new GoogleAuthProvider();
+  const { isLoading, authUser } = useAuth();
+
+  useEffect(() => {
+    // redirect to home page when authenticated
+    if (!isLoading && !!authUser) {
+      setTimeout(() => router.push("/home"), 2500);
+    }
+  }, [isLoading, authUser]);
 
   const loginHandler = async () => {
     if (!email || !password) return;
@@ -43,7 +51,9 @@ const Login = () => {
     }
   };
 
-  return (
+  return isLoading || (!isLoading && authUser) ? (
+    "loading"
+  ) : (
     <main className="flex lg:h-[100vh]">
       <div className="w-full lg:w-[60%] p-8 md:p-14 flex items-center justify-center lg:justify-start">
         <div className="p-8 w-[600px]">
