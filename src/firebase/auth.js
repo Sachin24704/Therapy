@@ -10,7 +10,7 @@ const AuthUserContext = createContext({ authUser: null, isLoading: true });
 // method to pass values in context provider
 
 export default function useFirebaseAuth() {
-  const [authUser, setAuthUser] = useState({});
+  const [authUser, setAuthUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const clear = () => {
