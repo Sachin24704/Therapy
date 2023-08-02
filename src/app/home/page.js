@@ -16,7 +16,7 @@ const Home = () => {
     <Loader />
   ) : (
     <div>
-      <h1>hello {authUser.email}</h1>
+      <h1>hell{authUser.email}</h1>
       <button onClick={signout}>logout</button>
     </div>
   );
