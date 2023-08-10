@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
-
+import { storage, db } from "@/firebase/firebase";
+import { ref, uploadBytes } from "firebase/storage";
+import { v4 } from "uuid";
 export default function details() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -12,14 +14,37 @@ export default function details() {
   const [about, setAbout] = useState("");
   const [exp, setExp] = useState("");
   const [no, setNo] = useState("");
+  const [image, setImage] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const imageUplaod = async () => {
+      if (image == null) {
+        alert("image not chossen");
+        return;
+      }
+      const imageRef = ref(storage, `doctor-image/${image.name + v4()}`);
+      try {
+        const upload = await uploadBytes(imageRef, image);
+        alert("image uploaded");
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    imageUplaod();
     console.log("success");
   };
   return (
     <div className="flex flex-col border justify-center p-8">
       <form onSubmit={handleSubmit}>
+        <label>Image</label> <br />
+        <input
+          type="file"
+          name="image"
+          onChange={(e) => setImage(e.target.files[0])}
+        />
+        <br />
+        <br />
         <label htmlFor="name">Name</label>
         <br />
         <input
