@@ -3,6 +3,17 @@ import { useState } from "react";
 import { storage, db } from "@/firebase/firebase";
 import { ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
+import { useAuth } from "@/firebase/auth";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  where,
+  query,
+  deleteDoc,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
 export default function details() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,23 +25,47 @@ export default function details() {
   const [about, setAbout] = useState("");
   const [exp, setExp] = useState("");
   const [no, setNo] = useState("");
+  const [gender, setGender] = useState("");
   const [image, setImage] = useState(null);
 
-  const handleSubmit = (e) => {
+  const { isLoading, authUser, signout } = useAuth();
+
+  const imageUplaod = async () => {
+    if (image == null) {
+      alert("image not chossen");
+      return;
+    }
+    const imageRef = ref(storage, `doctor-image/${image.name + v4()}`);
+    try {
+      const upload = await uploadBytes(imageRef, image);
+      alert("image uploaded");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const imageUplaod = async () => {
-      if (image == null) {
-        alert("image not chossen");
-        return;
-      }
-      const imageRef = ref(storage, `doctor-image/${image.name + v4()}`);
-      try {
-        const upload = await uploadBytes(imageRef, image);
-        alert("image uploaded");
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    try {
+      const docRef = await addDoc(collection(db, "doctor_profile"), {
+        // doctorId: authUser?.uid,
+        name: name,
+        email: email,
+        gender: gender,
+        phone: phone,
+        address: address,
+        city: city,
+        state: state,
+        country: country,
+        about: about,
+        exp: exp,
+        no: no,
+      });
+      alert("data saved successfully");
+    } catch (error) {
+      console.error(error);
+    }
+
     imageUplaod();
     console.log("success");
   };
@@ -166,6 +201,19 @@ export default function details() {
           value={no}
           onChange={(e) => setNo(e.target.value)}
         /> */}
+        <br />
+        <br />
+        <label>Gender</label>
+        <br />
+        <select
+          className=""
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
+        >
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
         <br />
         <br />
         <button className="">Submit</button>
