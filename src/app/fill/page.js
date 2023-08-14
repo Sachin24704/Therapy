@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { storage, db } from "@/firebase/firebase";
-import { ref, uploadBytes } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 import { useAuth } from "@/firebase/auth";
 import {
@@ -29,6 +29,7 @@ export default function details() {
   const [no, setNo] = useState("");
   const [gender, setGender] = useState("");
   const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
 
   const { isLoading, authUser, signout } = useAuth();
 
@@ -40,6 +41,8 @@ export default function details() {
     const imageRef = ref(storage, `doctor-image/${image.name + v4()}`);
     try {
       const upload = await uploadBytes(imageRef, image);
+      const downloadURL = await getDownloadURL(imageRef);
+      setImageUrl(downloadURL);
       alert("image uploaded");
     } catch (error) {
       console.error(error);
@@ -48,6 +51,7 @@ export default function details() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    imageUplaod();
     try {
       const docRef = await addDoc(collection(db, "doctor_profile"), {
         // doctorId: authUser?.uid,
@@ -64,13 +68,13 @@ export default function details() {
         exp: exp || "",
         no: no || "",
         languages: lang || "",
+        imageUrl: imageUrl,
       });
       alert("data saved successfully");
     } catch (error) {
       console.error(error);
     }
 
-    imageUplaod();
     console.log("success");
   };
   return (
