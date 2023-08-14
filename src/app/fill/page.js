@@ -16,6 +16,8 @@ import {
 } from "firebase/firestore";
 export default function details() {
   const [name, setName] = useState("");
+  const [lang, setLang] = useState("");
+  const [rate, setRate] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -49,17 +51,19 @@ export default function details() {
     try {
       const docRef = await addDoc(collection(db, "doctor_profile"), {
         // doctorId: authUser?.uid,
-        name: name,
-        email: email,
-        gender: gender,
-        phone: phone,
-        address: address,
-        city: city,
-        state: state,
-        country: country,
-        about: about,
-        exp: exp,
-        no: no,
+        name: name || "",
+        rate: rate || "",
+        email: email || "",
+        gender: gender || "",
+        phone: phone || "",
+        address: address || "",
+        city: city || "",
+        state: state || "",
+        country: country || "",
+        about: about || "",
+        exp: exp || "",
+        no: no || "",
+        languages: lang || "",
       });
       alert("data saved successfully");
     } catch (error) {
@@ -154,6 +158,28 @@ export default function details() {
           className=""
           value={country}
           onChange={(e) => setCountry(e.target.value)}
+        />
+        <br />
+        <br />
+        <label>Languages:</label>
+        <br />
+        <input
+          type="text"
+          name="country"
+          className=""
+          value={lang}
+          onChange={(e) => setLang(e.target.value)}
+        />
+        <br />
+        <br />
+        <label>Rate:</label>
+        <br />
+        <input
+          type="text"
+          name="rate"
+          className=""
+          value={rate}
+          onChange={(e) => setRate(e.target.value)}
         />
         <br />
         <br />
