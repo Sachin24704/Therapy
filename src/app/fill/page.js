@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { storage, db } from "@/firebase/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
@@ -29,7 +29,6 @@ export default function details() {
   const [no, setNo] = useState("");
   const [gender, setGender] = useState("");
   const [image, setImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState("");
 
   const { isLoading, authUser, signout } = useAuth();
 
@@ -41,41 +40,53 @@ export default function details() {
     const imageRef = ref(storage, `doctor-image/${image.name + v4()}`);
     try {
       const upload = await uploadBytes(imageRef, image);
-      const downloadURL = await getDownloadURL(imageRef);
-      setImageUrl(downloadURL);
+      // const downloadURL = getDownloadURL(imageRef)
+      // .then((res) => setImageUrl(res))
+      // .catch((error) => console.error(error));
+
       alert("image uploaded");
+      return imageRef;
     } catch (error) {
       console.error(error);
+      return null;
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    imageUplaod();
-    try {
-      const docRef = await addDoc(collection(db, "doctor_profile"), {
-        // doctorId: authUser?.uid,
-        name: name || "",
-        rate: rate || "",
-        email: email || "",
-        gender: gender || "",
-        phone: phone || "",
-        address: address || "",
-        city: city || "",
-        state: state || "",
-        country: country || "",
-        about: about || "",
-        exp: exp || "",
-        no: no || "",
-        languages: lang || "",
-        imageUrl: imageUrl,
-      });
-      alert("data saved successfully");
-    } catch (error) {
-      console.error(error);
+    // await imageUplaod();
+    const uploadedImageRef = await imageUplaod();
+
+    if (uploadedImageRef) {
+      try {
+        const downloadURL = await getDownloadURL(uploadedImageRef);
+        console.log("imageUrl: ", downloadURL);
+        const docRef = await addDoc(collection(db, "doctor_profile"), {
+          // doctorId: authUser?.uid,
+          name: name || "",
+          rate: rate || "",
+          email: email || "",
+          gender: gender || "",
+          phone: phone || "",
+          address: address || "",
+          city: city || "",
+          state: state || "",
+          country: country || "",
+          about: about || "",
+          exp: exp || "",
+          no: no || "",
+          languages: lang || "",
+          imageUrl: downloadURL,
+        });
+        alert("data saved successfully");
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      alert("Please Upload Image");
     }
 
-    console.log("success");
+    // console.log("success");
   };
   return (
     <div className="flex flex-col border justify-center p-8">

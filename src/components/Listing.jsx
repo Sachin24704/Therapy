@@ -2,7 +2,9 @@ export default function Listing({ profile }) {
   return (
     <>
       <div className="flex ">
-        <div className="">{profile.img}</div>
+        <div className="">
+          <img href={profile.img}></img>
+        </div>
         <div className="">
           <spam>Name:{profile.name}</spam>
         </div>
