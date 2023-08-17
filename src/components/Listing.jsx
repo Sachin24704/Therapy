@@ -3,23 +3,29 @@ export default function Listing({ profile }) {
     <>
       <div className="flex ">
         <div className="">
-          <img href={profile.imageUrl}></img>
+          <img src={profile.imageUrl}></img>
         </div>
+        <br />
         <div className="">
-          <spam>Name:{profile.name}</spam>
+          <span>Name:{profile.name}</span>
         </div>
+        <br />
         <div className="">
-          <spam>Rate:{profile.rate}</spam>
+          <span>Rate:{profile.rate}</span>
         </div>
+        <br />
         <div className="">
-          <spam>Languages:{profile.lang}</spam>
+          <span>Languages:{profile.lang}</span>
         </div>
+        <br />
         <div className="">
-          <spam>Years of Exp:{profile.exp}</spam>
+          <span>Years of Exp:{profile.exp}</span>
         </div>
+        <br />
         <div className="">
-          <spam>Patients treated:{profile.no}</spam>
+          <span>Patients treated:{profile.no}</span>
         </div>
+        <br />
       </div>
     </>
   );
