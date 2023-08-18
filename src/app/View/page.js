@@ -26,7 +26,7 @@ export default function List() {
   }, []);
 
   return (
-    <div>
+    <div className="border flex flex-col bg-blue">
       {doctorProfiles.map((profile) => (
         <Listing key={profile.id} profile={profile} />
       ))}
