@@ -39,33 +39,9 @@ export default function Dashboard({}) {
 
   return (
     <div className="flex bg-gray-100 min-h-screen">
-      {/* Sidebar */}
-      <aside
-        className={`${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } fixed bg-blue-700 w-56 h-full p-4 text-white transition-transform duration-300 transform top-0 left-0 z-50`}
-      >
-        <h2 className="text-2xl font-semibold mb-4">Dashboard</h2>
-        <ul className="space-y-2">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/profile">Profiles</Link>
-          </li>
-          {/* Add more sidebar links */}
-        </ul>
-      </aside>
-
       {/* Main content */}
       <main className="flex-1 p-8 ml-56">
         <div className="flex justify-between items-center mb-4">
-          <button
-            className="text-xl text-blue-700 mr-4"
-            onClick={toggleSidebar}
-          >
-            ☰
-          </button>
           <h1 className="text-3xl font-semibold">
             Welcome, {authUser.username}
           </h1>
