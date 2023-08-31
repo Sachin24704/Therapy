@@ -8,7 +8,10 @@ import {
 } from "langchain/prompts";
 import { BufferMemory } from "langchain/memory";
 
-const chat = new ChatOpenAI({ temperature: 0.5 });
+const chat = new ChatOpenAI({
+  openAIApiKey: process.env.OPENAI_API_KEY,
+  temperature: 0.5,
+});
 
 const chatPrompt = ChatPromptTemplate.fromPromptMessages([
   SystemMessagePromptTemplate.fromTemplate(
@@ -23,6 +26,7 @@ const memory = new BufferMemory({
   returnMessages: true,
   memoryKey: "history",
 });
+console.log(memory);
 
 const chain = new ConversationChain({
   memory,
@@ -31,8 +35,18 @@ const chain = new ConversationChain({
   verbose: true,
 });
 
-const res = await chain.call({
-  input: "My name is Jim.",
-});
+// const res = await chain.call({
+//   input:
+// });
 
-export async function getChat() {}
+export async function POST(req, res) {
+  const { message } = await req.json();
+
+  try {
+    const response = await chain.call({ input: message });
+    res.status(201).send({ response: response });
+  } catch (error) {
+    console.log(error);
+    res.send(error);
+  }
+}
