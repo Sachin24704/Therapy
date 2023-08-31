@@ -31,7 +31,7 @@ const chatbot = () => {
       console.error(error);
     }
 
-    setChat([...chat, { role: "assisant", content: res }]);
+    setChat([...chat, { role: "assisant", content: responseData }]);
     setMsg(""); // value displayed in input box
   };
   return (
