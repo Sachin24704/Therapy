@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Chat from "@/components/Chat";
 const chatbot = () => {
   const [msg, setMsg] = useState("");
+  const [thinking, setThinking] = useState(false);
   const [chat, setChat] = useState([
     {
       role: "assisant",
@@ -14,6 +15,9 @@ const chatbot = () => {
     e.preventDefault();
     var responseData = "";
     setChat([...chat, { role: "user", content: msg }]);
+    let input = msg;
+    setMsg("");
+    setThinking(true);
     try {
       const res = await fetch("/api/chatbot", {
         method: "POST",
@@ -31,13 +35,13 @@ const chatbot = () => {
     } catch (error) {
       console.error(error);
     }
-
+    setThinking(false);
     setChat([
       ...chat,
-      { role: "user", content: msg },
+      { role: "user", content: input },
       { role: "assisant", content: responseData.response },
     ]);
-    setMsg(""); // value displayed in input box
+    // setMsg(""); // value displayed in input box
   };
   return (
     <div className="flex-col bg-slate-600 min-h-screen ">
@@ -58,6 +62,7 @@ const chatbot = () => {
         </form>
       </div> */}
       <div className="fixed bottom-0 left-0 w-full bg-white p-4 shadow-md">
+        <div className="think">{thinking ? "Thinking..." : ""}</div>
         <form className="flex items-center" onSubmit={handleSubmit}>
           <input
             className="flex-1 bg-gray-100 rounded-full px-4 py-2 focus:outline-none"
