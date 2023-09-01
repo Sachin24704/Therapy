@@ -7,9 +7,10 @@ import {
   MessagesPlaceholder,
 } from "langchain/prompts";
 import { BufferMemory } from "langchain/memory";
+import { NextRequest, NextResponse } from "next/server";
 
 const chat = new ChatOpenAI({
-  openAIApiKey: process.env.OPENAI_API_KEY,
+  // openAIApiKey: process.env.OPENAI_API_KEY,
   temperature: 0.5,
 });
 
@@ -39,14 +40,15 @@ const chain = new ConversationChain({
 //   input:
 // });
 
-export async function POST(req, res) {
-  const { message } = await req.json();
+export async function POST(request) {
+  const message = await request.json();
 
   try {
     const response = await chain.call({ input: message });
-    res.status(201).send({ response: response });
+    console.log("fgffhh", JSON.stringify(response));
+    return new NextResponse(JSON.stringify(response));
   } catch (error) {
     console.log(error);
-    res.send(error);
+    return new NextResponse(JSON.stringify(error));
   }
 }

@@ -12,6 +12,7 @@ const chatbot = () => {
   ]);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    var responseData = "";
     setChat([...chat, { role: "user", content: msg }]);
     try {
       const res = await fetch("/api/chatbot", {
@@ -22,16 +23,20 @@ const chatbot = () => {
         },
         body: JSON.stringify(msg),
       });
-      if (!response.ok) {
+      if (!res.ok) {
         throw new Error("Network response was not ok");
       }
-      const responseData = await res.json();
-      console.log("Response data:", responseData);
+      responseData = await res.json();
+      console.log("Response data:", responseData.response);
     } catch (error) {
       console.error(error);
     }
 
-    setChat([...chat, { role: "assisant", content: responseData }]);
+    setChat([
+      ...chat,
+      { role: "user", content: msg },
+      { role: "assisant", content: responseData.response },
+    ]);
     setMsg(""); // value displayed in input box
   };
   return (
