@@ -31,20 +31,18 @@ import Loader from "@/components/loader";
 
 export default function Dashboard({}) {
   const { isLoading, authUser, signout } = useAuth();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
 
   return (
-    <div className="flex bg-gray-100 min-h-screen">
+    <div className="flex bg-blue-200 ">
       {/* Main content */}
       <main className="flex-1 p-8 ml-56">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-3xl font-semibold">
-            Welcome, {authUser.username}
+            Welcome, {authUser?.username}
           </h1>
+          <div className="">
+            <Link href="/chatbot">Chatbot</Link>
+          </div>
           <button
             className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
             onClick={signout}
