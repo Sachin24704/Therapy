@@ -48,7 +48,7 @@ const chatbot = () => {
   };
   return (
     <>
-      <Dashboard />
+      <Dashboard isHome={false} />
       <div className="flex-col bg-slate-600 min-h-screen ">
         <div className="chat-container">
           {chat.map((chat, index) => {

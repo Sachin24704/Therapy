@@ -29,7 +29,7 @@ import { useAuth } from "@/firebase/auth";
 
 import Loader from "@/components/loader";
 
-export default function Dashboard({}) {
+export default function Dashboard({ isHome }) {
   const { isLoading, authUser, signout } = useAuth();
 
   return (
@@ -40,9 +40,15 @@ export default function Dashboard({}) {
           <h1 className="text-3xl font-semibold">
             Welcome, {authUser?.username}
           </h1>
-          <div className="">
-            <Link href="/chatbot">Chatbot</Link>
-          </div>
+          {isHome ? (
+            <div className="">
+              <Link href="/chatbot">Chatbot</Link>
+            </div>
+          ) : (
+            <div className="">
+              <Link href="/home">Home</Link>
+            </div>
+          )}
           <button
             className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
             onClick={signout}
