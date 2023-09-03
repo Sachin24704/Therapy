@@ -33,7 +33,7 @@ export default function Dashboard({}) {
   const { isLoading, authUser, signout } = useAuth();
 
   return (
-    <div className="flex bg-blue-200 ">
+    <div className="flex bg-blue-200  ">
       {/* Main content */}
       <main className="flex-1 p-8 ml-56">
         <div className="flex justify-between items-center mb-4">
