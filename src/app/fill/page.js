@@ -28,6 +28,7 @@ export default function details() {
   const [exp, setExp] = useState("");
   const [no, setNo] = useState("");
   const [gender, setGender] = useState("");
+  const [calendy, setCalendy] = useState("");
   const [image, setImage] = useState(null);
 
   const { isLoading, authUser, signout } = useAuth();
@@ -75,6 +76,7 @@ export default function details() {
           about: about || "",
           exp: exp || "",
           no: no || "",
+          calendy: calendy || "",
           languages: lang || "",
           imageUrl: downloadURL,
         });
@@ -217,6 +219,20 @@ export default function details() {
           className=""
           value={exp}
           onChange={(e) => setExp(e.target.value)}
+        />
+        <br />
+        <br />
+        <label>
+          Calendy link(Go to https://calendly.com/ - greate your account ,
+          create your calender to schedule calls and share that link) :
+        </label>
+        <br />
+        <input
+          type="link"
+          name="calendy"
+          className=""
+          value={calendy}
+          onChange={(e) => setCalendy(e.target.value)}
         />
         <br />
         <br />
