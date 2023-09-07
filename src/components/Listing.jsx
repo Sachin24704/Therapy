@@ -50,7 +50,8 @@ export default function Listing({ profile }) {
             <div className="p-8 bg-white rounded shadow-lg">
               {/* Style the iframe with Tailwind CSS classes */}
               <iframe
-                src="https://calendly.com/sachin-123-kumar-456/30min"
+                src={profile.calendy}
+                // "https://calendly.com/sachin-123-kumar-456/30min"
                 className="w-full h-[500px] border-none"
               ></iframe>
               <button
