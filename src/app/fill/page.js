@@ -223,7 +223,7 @@ export default function details() {
         <br />
         <br />
         <label>
-          Calendy link(Go to https://calendly.com/ - greate your account ,
+          Calendy link(Go to https://calendly.com/ - create your account ,
           create your calender to schedule calls and share that link) :
         </label>
         <br />
