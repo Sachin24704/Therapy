@@ -49,7 +49,7 @@ export default function Dashboard({ isHome }) {
               </Link>
               <Link
                 className=" p-4  text-blue-500 hover:underline"
-                href="/chatbot"
+                href="/about"
               >
                 About
               </Link>
