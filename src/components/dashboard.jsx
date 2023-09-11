@@ -34,30 +34,25 @@ export default function Dashboard({ isHome }) {
 
   return (
     <div className="flex bg-blue-200  ">
-      {/* Main content */}
-      <main className="flex-1 p-8 ml-56">
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="text-3xl font-semibold">
-            Welcome, {authUser?.username}
-          </h1>
-          {isHome ? (
-            <div className="">
-              <Link href="/chatbot">Chatbot</Link>
-            </div>
-          ) : (
-            <div className="">
-              <Link href="/home">Home</Link>
-            </div>
-          )}
-          <button
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-            onClick={signout}
-          >
-            Sign Out
-          </button>
-        </div>
-        {/* Add other content */}
-      </main>
+      <div className="flex flex-row justify-between items-center mb-4">
+        <span className=" font-semibold">Welcome, {authUser?.username}</span>
+        {isHome ? (
+          <div className="">
+            <Link href="/chatbot">Chatbot</Link>
+          </div>
+        ) : (
+          <div className="">
+            <Link href="/home">Home</Link>
+          </div>
+        )}
+        <button
+          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+          onClick={signout}
+        >
+          Sign Out
+        </button>
+      </div>
+      {/* Add other content */}
     </div>
   );
 }
