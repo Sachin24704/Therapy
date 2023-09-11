@@ -38,15 +38,31 @@ export default function Dashboard({ isHome }) {
             Welcome, {authUser?.username}
           </span>
         </div>
-        <div className="space-x-4">
+        <div className="space-x-4 flex flex-row items-center">
           {isHome ? (
-            <Link className="text-blue-500 hover:underline" href="/chatbot">
-              Chatbot
-            </Link>
+            <div>
+              <Link
+                className="p-4 text-blue-500 hover:underline"
+                href="/chatbot"
+              >
+                Chatbot
+              </Link>
+              <Link
+                className=" p-4  text-blue-500 hover:underline"
+                href="/chatbot"
+              >
+                About
+              </Link>
+            </div>
           ) : (
-            <Link className="text-blue-500 hover:underline" href="/home">
-              Home
-            </Link>
+            <div>
+              <Link className="text-blue-500 hover:underline" href="/home">
+                Home
+              </Link>
+              <Link className="text-blue-500 hover:underline" href="/chatbot">
+                About
+              </Link>
+            </div>
           )}
           <button
             className="bg-blue-500 hover:bg-red-600 text-white px-4 py-2 rounded"
