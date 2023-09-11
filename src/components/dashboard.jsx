@@ -56,10 +56,13 @@ export default function Dashboard({ isHome }) {
             </div>
           ) : (
             <div>
-              <Link className="text-blue-500 hover:underline" href="/home">
+              <Link className="p-4 text-blue-500 hover:underline" href="/home">
                 Home
               </Link>
-              <Link className="text-blue-500 hover:underline" href="/chatbot">
+              <Link
+                className="p-4 text-blue-500 hover:underline"
+                href="/chatbot"
+              >
                 About
               </Link>
             </div>
