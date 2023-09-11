@@ -35,7 +35,7 @@ export default function Dashboard({ isHome }) {
   return (
     <div className="flex bg-blue-200  ">
       <div className="flex flex-row justify-between items-center mb-4">
-        <span className=" font-semibold">Welcome, {authUser?.username}</span>
+        <span className="mx- font-semibold">Welcome, {authUser?.username}</span>
         {isHome ? (
           <div className="">
             <Link href="/chatbot">Chatbot</Link>
@@ -45,8 +45,9 @@ export default function Dashboard({ isHome }) {
             <Link href="/home">Home</Link>
           </div>
         )}
+
         <button
-          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+          className="bg-white-500 text-black ml-0 hover:bg-red-600 text-white px-4 py-2 rounded"
           onClick={signout}
         >
           Sign Out
