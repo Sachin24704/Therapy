@@ -5,7 +5,7 @@ export default function About() {
   return (
     <>
       <Dashboard />
-      <div className="">about</div>
+      <div className="">About</div>
     </>
   );
 }
