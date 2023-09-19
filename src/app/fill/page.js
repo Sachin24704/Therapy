@@ -14,7 +14,7 @@ import {
   updateDoc,
   doc,
 } from "firebase/firestore";
-export default function details() {
+export default function Details() {
   const [name, setName] = useState("");
   const [lang, setLang] = useState("");
   const [rate, setRate] = useState("");

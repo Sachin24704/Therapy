@@ -4,7 +4,7 @@ import Dashboard from "@/components/dashboard";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/firebase/auth";
 import Chat from "@/components/Chat";
-const chatbot = () => {
+const Chatbot = () => {
   const [msg, setMsg] = useState("");
   const [thinking, setThinking] = useState(false);
   const { isLoading, authUser, signout } = useAuth();
@@ -89,4 +89,4 @@ const chatbot = () => {
   );
 };
 
-export default chatbot;
+export default Chatbot;
