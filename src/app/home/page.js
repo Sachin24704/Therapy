@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useAuth } from "@/firebase/auth";
 import { useRouter } from "next/navigation";
-import Loader from "@/components/loader";
+import Loader from "@/components/Loader";
 import Dashboard from "@/components/dashboard";
 
 const Home = () => {
