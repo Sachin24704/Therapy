@@ -6,7 +6,7 @@ export default function About() {
     <>
       <Dashboard />
       <div className="">
-        <h1>about</h1>
+        <h1>About</h1>
         <div className="">
           <p>We help with theray to cure loneliness</p>
         </div>
