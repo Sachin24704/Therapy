@@ -8,7 +8,7 @@ export default function About() {
       <div className="">
         <h1>About</h1>
         <div className="">
-          <p>We help with theray to cure lonelines</p>
+          <p>We help with theray to cure lonelinesssss.....</p>
         </div>
       </div>
     </>
