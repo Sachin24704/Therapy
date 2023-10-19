@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Loader from "./Loader";
+import { FcGoogle } from "react-icons/fc";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { auth } from "@/firebase/firebase";
