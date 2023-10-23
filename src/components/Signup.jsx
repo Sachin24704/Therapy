@@ -36,7 +36,7 @@ const Signup = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("hi");
+    console.log("hiii");
     if (!email || !password) return;
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
