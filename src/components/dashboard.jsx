@@ -33,7 +33,9 @@ export default function Dashboard({ isHome, isTherapy }) {
     <div className="bg-blue-200 py-2 px-4">
       <div className="container mx-auto flex flex-row justify-between items-center">
         <div className="flex items-center space-x-4">
-          <span className="text-xl font-semibold text-blue-900">Therapy</span>
+          <a className="text-xl font-semibold text-blue-900 " href="/home">
+            Zenexa
+          </a>
           <span className="text-lg font-semibold text-blue-900 ml-4">
             Welcome, {authUser?.username}
           </span>
