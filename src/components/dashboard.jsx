@@ -26,7 +26,7 @@
 import Link from "next/link";
 import { useAuth } from "@/firebase/auth";
 
-export default function Dashboard({ isHome }) {
+export default function Dashboard({ isHome, isTherapy }) {
   const { isLoading, authUser, signout } = useAuth();
 
   return (
@@ -57,6 +57,24 @@ export default function Dashboard({ isHome }) {
                 Therapist
               </Link>
             </div>
+          ) : isTherapy ? (
+            <div>
+              <Link className="p-4 text-blue-500 hover:underline" href="/home">
+                Home
+              </Link>
+              <Link
+                className="p-4 text-blue-500 hover:underline"
+                href="/chatbot"
+              >
+                About
+              </Link>
+              <Link
+                className="p-4 text-blue-500 hover:underline"
+                href="/chatbot"
+              >
+                Chatbot
+              </Link>
+            </div>
           ) : (
             <div>
               <Link className="p-4 text-blue-500 hover:underline" href="/home">
@@ -67,6 +85,9 @@ export default function Dashboard({ isHome }) {
                 href="/chatbot"
               >
                 About
+              </Link>
+              <Link className="p-4 text-blue-500 hover:underline" href="/View">
+                Therapist
               </Link>
             </div>
           )}

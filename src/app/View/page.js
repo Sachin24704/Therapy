@@ -28,7 +28,7 @@ export default function List() {
 
   return (
     <>
-      <Dashboard />
+      <Dashboard isTherapy={true} />
       <div className="border flex flex-col bg-blue">
         {doctorProfiles.map((profile) => (
           <Listing key={profile.id} profile={profile} />
