@@ -4,6 +4,7 @@ import { useAuth } from "@/firebase/auth";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 import Listing from "@/components/Listing";
+import Dashboard from "@/components/dashboard";
 
 export default function List() {
   const [doctorProfiles, setDoctorProfiles] = useState([]);
@@ -26,10 +27,13 @@ export default function List() {
   }, []);
 
   return (
-    <div className="border flex flex-col bg-blue">
-      {doctorProfiles.map((profile) => (
-        <Listing key={profile.id} profile={profile} />
-      ))}
-    </div>
+    <>
+      <Dashboard />
+      <div className="border flex flex-col bg-blue">
+        {doctorProfiles.map((profile) => (
+          <Listing key={profile.id} profile={profile} />
+        ))}
+      </div>
+    </>
   );
 }

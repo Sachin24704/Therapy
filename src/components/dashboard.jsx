@@ -53,6 +53,9 @@ export default function Dashboard({ isHome }) {
               >
                 About
               </Link>
+              <Link className="p-4 text-blue-500 hover:underline" href="/View">
+                Therapist
+              </Link>
             </div>
           ) : (
             <div>
