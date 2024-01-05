@@ -45,7 +45,7 @@ export async function POST(request) {
 
   try {
     const response = await chain.call({ input: message });
-    console.log("fgffhh", JSON.stringify(response));
+    console.log("response:", JSON.stringify(response));
     return new NextResponse(JSON.stringify(response));
   } catch (error) {
     console.log(error);

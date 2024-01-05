@@ -80,12 +80,18 @@ export default function Dashboard({ isHome, isTherapy }) {
               </Link>
             </div>
           )}
-          <button
-            className="bg-blue-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-            onClick={signout}
-          >
-            Sign Out
-          </button>
+          {authUser ? (
+            <button
+              className="bg-blue-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+              onClick={signout}
+            >
+              Sign Out
+            </button>
+          ) : (
+            <button className="bg-blue-500 hover:bg-red-600 text-white px-4 py-2 rounded">
+              <Link href="/login">Login</Link>
+            </button>
+          )}
         </div>
       </div>
     </nav>
