@@ -4,10 +4,21 @@ import Dashboard from "@/components/dashboard";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/firebase/auth";
 import Chat from "@/components/Chat";
+import { useRouter } from "next/navigation";
+import Loader from "@/components/Loader";
 const Chatbot = () => {
   const [msg, setMsg] = useState("");
   const [thinking, setThinking] = useState(false);
   const { isLoading, authUser, signout } = useAuth();
+  // for auth
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isLoading && !authUser) {
+      router.push("/login");
+    }
+  }, [authUser, isLoading]);
+
   const [chat, setChat] = useState([
     {
       role: "assisant",
@@ -46,7 +57,9 @@ const Chatbot = () => {
     ]);
     // setMsg(""); // value displayed in input box
   };
-  return (
+  return !authUser ? (
+    <Loader />
+  ) : (
     <>
       <Dashboard isHome={false} />
       <div className="flex-col bg-slate-600 min-h-screen ">
