@@ -60,7 +60,7 @@ const Chatbot = () => {
   return !authUser ? (
     <Loader />
   ) : (
-    <>
+    <div>
       <Dashboard isHome={false} />
       <div className="flex-col bg-slate-600 min-h-screen ">
         <div className="chat-container">
@@ -98,7 +98,7 @@ const Chatbot = () => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

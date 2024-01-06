@@ -4,6 +4,7 @@ import { useAuth } from "@/firebase/auth";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/Loader";
 import Dashboard from "@/components/dashboard";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   const router = useRouter();
@@ -86,6 +87,9 @@ const Home = () => {
             </p>
           </div>
         </div>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );
