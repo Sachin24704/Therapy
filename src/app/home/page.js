@@ -18,7 +18,7 @@ const Home = () => {
   //   <Loader />
   // ) :
   return (
-    <div>
+    <div style={{ backgroundImage: 'url("/bg-abstract.jpg")' }}>
       <Dashboard isHome={true}></Dashboard>
       {/* <h1>hellos {authUser.email}</h1>
       <button onClick={signout}>logout</button> */}
@@ -40,8 +40,14 @@ const Home = () => {
         </div>
 
         {/* Section 2: About Us */}
-        <div className="min-h-screen bg-blue-500 flex items-center justify-center text-white">
-          <div className="container mx-auto text-center">
+        <div className="min-h-screen flex items-center justify-center text-white">
+          <div className="container relative mx-auto text-center">
+            {/* animation*/}
+            <div class="absolute top-0 left-96 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute top-0 right-96 w-72 h-72 bg-green-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-8 right-96 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+            <div class="absolute -bottom-8 left-96 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+            {/* animation*/}
             <h2 className="text-3xl font-bold mb-4">About Us</h2>
             <p className="text-lg">
               At Zenexa, we believe that mental health is the most important
@@ -69,7 +75,7 @@ const Home = () => {
         </div>
 
         {/* Section 4: Book a Session */}
-        <div className="min-h-screen bg-blue-500 flex items-center justify-center text-white">
+        <div className="min-h-screen  flex items-center justify-center text-white">
           <div className="container mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Book a Session</h2>
             <p className="text-lg">
@@ -84,7 +90,7 @@ const Home = () => {
         {/* <div className="min-h-screen bg-blue-500 flex items-center justify-center text-white"> */}
         <div
           className="min-h-screen bg-cover bg-center flex items-center justify-center text-black"
-          style={{ backgroundImage: 'url("/bg-image-3.jpg")' }}
+          style={{ backgroundImage: 'url("/bg-image-3.1.jpg")' }}
         >
           <div className="container mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">B2B Services</h2>
