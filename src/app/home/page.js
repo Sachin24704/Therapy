@@ -34,10 +34,14 @@ const Home = () => {
           className="min-h-screen bg-cover bg-center flex items-center justify-center text-black"
           style={{ backgroundImage: 'url("/bg-image-1.jpg")' }}
         >
-          <div className="container mx-auto text-center">
-            <img src="/logo.png" alt="Zenexa Logo" className="h-16 w-auto" />
+          <div className="container flex-row mx-auto text-center">
+            <img
+              src="/logo2-removebg-preview.PNG"
+              alt="Zenexa Logo"
+              className="h-16 w-auto mx-auto"
+            />
 
-            <h1 className="text-4xl font-bold mt-4">Zenexa Therapy</h1>
+            <h1 className="text-4xl font-bold mt-4">ZenexA</h1>
             <p className="text-lg mt-2">
               Bringing mental wellness to your fingertips
             </p>
@@ -81,7 +85,7 @@ const Home = () => {
         {/* <div className="min-h-screen bg-blue-500 flex items-center justify-center text-white"> */}
         <div
           className="min-h-screen bg-cover bg-center flex items-center justify-center text-black"
-          style={{ backgroundImage: 'url("/bg-image-2.1.jpg")' }}
+          style={{ backgroundImage: 'url("/bg-2.1.jpg")', opacity: 0.9 }}
         >
           <div className="container mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Our Features</h2>
@@ -195,7 +199,7 @@ const Home = () => {
         {/* <div className="min-h-screen bg-blue-500 flex items-center justify-center text-white"> */}
         <div
           className="min-h-screen bg-cover bg-center flex items-center justify-center text-black"
-          style={{ backgroundImage: 'url("/bg-image-3.1.jpg")' }}
+          style={{ backgroundImage: 'url("/bg-image-3.1.jpgh")' }}
         >
           <div className="container mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">B2B Services</h2>
