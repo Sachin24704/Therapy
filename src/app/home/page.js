@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Loader from "@/components/Loader";
 import Dashboard from "@/components/dashboard";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 const Home = () => {
   const router = useRouter();
@@ -64,19 +65,30 @@ const Home = () => {
               loneliness epidemic through therapy and make the world a better
               place. 
             </p> */}
-            <div className="flex-col">
-              <p className="text-lg text-left">
-                Welcome to Zenexa, where we bridge the gap between traditional
-                therapy and cutting-edge technology. In a world grappling with
-                rising mental health challenges, our expert psychologists offer
-                transformative sessions, while our AI chatbot provides a digital
-                companion for moments of need. We're not just a mental health
-                brand; we're architects of hope, crafting a new narrative for
-                well-being in the face of increasing loneliness, burnouts, and
-                unhappiness. Join us on this journey to rediscover joy, one
-                conversation at a time. Zenexa – where understanding and
-                innovation converge for your peace of mind.
-              </p>
+            <div className="flex">
+              <div className="w-4xl">
+                <Image
+                  src="/bg-image-2.1.jpg"
+                  alt="effects of therapy"
+                  width={2100}
+                  height={200}
+                  className="rounded-lg w-full h-full"
+                />
+              </div>
+              <div className="ml-10">
+                <p className="text-lg text-left">
+                  Welcome to Zenexa, where we bridge the gap between traditional
+                  therapy and cutting-edge technology. In a world grappling with
+                  rising mental health challenges, our expert psychologists
+                  offer transformative sessions, while our AI chatbot provides a
+                  digital companion for moments of need. We're not just a mental
+                  health brand; we're architects of hope, crafting a new
+                  narrative for well-being in the face of increasing loneliness,
+                  burnouts, and unhappiness. Join us on this journey to
+                  rediscover joy, one conversation at a time. Zenexa – where
+                  understanding and innovation converge for your peace of mind.
+                </p>
+              </div>
             </div>
           </div>
         </div>
