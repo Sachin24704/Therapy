@@ -25,32 +25,35 @@ const Home = () => {
   // ) :
   return (
     <div style={{ backgroundImage: 'url("/bg-abstract.jpg")' }}>
-      <Dashboard isHome={true}></Dashboard>
+      {/* <Dashboard isHome={true}></Dashboard> */}
       {/* <h1>hellos {authUser.email}</h1>
       <button onClick={signout}>logout</button> */}
       <div>
         {/* Section 1: Logo + Background Image + Tagline */}
         {/* <div className="min-h-screen bg-blue-500 flex items-center justify-center text-white"> */}
         <div
-          className="min-h-screen bg-cover bg-center flex items-center justify-center text-black"
           style={{ backgroundImage: 'url("/bg-image-1.jpg")' }}
+          className="bg-cover bg-center"
         >
-          <div className="container flex-row mx-auto text-center">
-            <img
-              src="/logo2-removebg-preview.PNG"
-              alt="Zenexa Logo"
-              className="h-16 w-auto mx-auto"
-            />
+          <Dashboard isHome={true} bgColour={true}></Dashboard>
+          <div className="min-h-screen bg-cover bg-center flex items-center justify-center text-black">
+            <div className="container flex-row mx-auto text-center">
+              <img
+                src="/logo2-removebg-preview.png"
+                alt="Zenexa Logo"
+                className="h-16 w-auto mx-auto"
+              />
 
-            <h1 className="text-4xl font-bold mt-4">ZenexA</h1>
-            <p className="text-lg mt-2">
-              Bringing mental wellness to your fingertips
-            </p>
+              <h1 className="text-4xl font-bold mt-4">ZenexA</h1>
+              <p className="text-lg mt-2">
+                Bringing mental wellness to your fingertips
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Section 2: About Us */}
-        <div className="min-h-screen flex items-center justify-center text-white">
+        <div className="min-h-screen flex items-center justify-center text-white mt-4">
           <div className="container relative mx-auto text-center">
             {/* animation*/}
             {/* <div class="absolute top-0 left-96 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
@@ -66,7 +69,7 @@ const Home = () => {
               place. 
             </p> */}
             <div className="flex">
-              <div className="w-4xl">
+              <div className="">
                 <Image
                   src="/bg-image-2.1.jpg"
                   alt="effects of therapy"
@@ -85,8 +88,19 @@ const Home = () => {
                   health brand; we're architects of hope, crafting a new
                   narrative for well-being in the face of increasing loneliness,
                   burnouts, and unhappiness. Join us on this journey to
-                  rediscover joy, one conversation at a time. Zenexa – where
-                  understanding and innovation converge for your peace of mind.
+                  rediscover joy, one conversation at a time.{" "}
+                </p>
+                <br />
+                <p className="text-lg text-left">
+                  We're not just a mental health brand; we're architects of
+                  hope, crafting a new narrative for well-being in the face of
+                  increasing loneliness, burnouts, and unhappiness. Join us on
+                  this journey to rediscover joy, one conversation at a time.{" "}
+                </p>
+                <br />
+                <p className="text-lg text-left">
+                  Zenexa – where understanding and innovation converge for your
+                  peace of mind.
                 </p>
               </div>
             </div>
@@ -96,11 +110,11 @@ const Home = () => {
         {/* Section 3: Features - Therapy Chatbot */}
         {/* <div className="min-h-screen bg-blue-500 flex items-center justify-center text-white"> */}
         <div
-          className="min-h-screen bg-cover bg-center flex items-center justify-center text-black"
-          style={{ backgroundImage: 'url("/bg-2.1.jpg")', opacity: 0.9 }}
+          className="min-h-screen bg-cover bg-center flex mt-4 items-center justify-center text-black"
+          style={{ backgroundImage: 'url("/bg-2.3.jpg")', opacity: 1 }}
         >
-          <div className="container mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Our Features</h2>
+          <div className="container mx-auto text-center font-extrabold">
+            <h2 className="text-3xl font-extrabold mb-4">Our Features</h2>
             <p className="text-lg">
               Explore the benefits of our therapy chatbot that provides
               personalized support and guidance, making your mental health
@@ -155,7 +169,7 @@ const Home = () => {
         </div>
 
         {/* Section 4: Book a Session */}
-        <div className="min-h-screen  flex items-center justify-center text-white">
+        <div className="min-h-screen  mt-4 flex items-center justify-center text-white">
           <div className="container mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Book a Session</h2>
             <p className="text-lg">
@@ -210,7 +224,7 @@ const Home = () => {
         {/* Section 5: B2B Services */}
         {/* <div className="min-h-screen bg-blue-500 flex items-center justify-center text-white"> */}
         <div
-          className="min-h-screen bg-cover bg-center flex items-center justify-center text-black"
+          className="min-h-screen bg-cover bg-center mt-4 flex items-center justify-center text-black"
           style={{ backgroundImage: 'url("/bg-image-3.1.jpgh")' }}
         >
           <div className="container mx-auto text-center">

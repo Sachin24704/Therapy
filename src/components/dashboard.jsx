@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { useAuth } from "@/firebase/auth";
 
-export default function Dashboard({ isHome, isTherapy }) {
+export default function Dashboard({ isHome, isTherapy, bgColour }) {
   const { isLoading, authUser, signout } = useAuth();
 
   return (
-    <nav className="bg-blue-200 py-2 px-4">
+    <nav
+      className={` py-2 px-4 ${bgColour ? "bg-transparent" : "bg-blue-200"}`}
+    >
       <div className="container mx-auto flex flex-row justify-between items-center">
         <div className="flex items-center space-x-4">
           <a className="text-xl font-semibold text-blue-900 " href="/home">
