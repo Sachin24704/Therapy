@@ -13,9 +13,11 @@ export default function Dashboard({ isHome, isTherapy, bgColour }) {
           <a className="text-xl font-semibold text-blue-900 " href="/home">
             Zenexa
           </a>
-          <span className="text-lg font-semibold text-blue-900 ml-4">
-            Welcome, {authUser?.username}
-          </span>
+          {authUser ? (
+            <span className="text-lg font-semibold text-blue-900 ml-4">
+              Welcome, {authUser?.username}
+            </span>
+          ) : null}
         </div>
         <div className="hidden lg:flex space-x-4  flex-row items-center">
           {isHome ? (

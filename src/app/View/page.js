@@ -40,13 +40,16 @@ export default function List() {
   return !authUser ? (
     <Loader />
   ) : (
-    <>
-      <Dashboard isTherapy={true} />
+    <div
+      className="bg-cover bg-center"
+      style={{ backgroundImage: 'url("/view-bg.jpg")', opacity: 1 }}
+    >
+      <Dashboard isTherapy={true} bgColour={true} />
       <div className="border flex flex-col bg-blue">
         {doctorProfiles.map((profile) => (
           <Listing key={profile.id} profile={profile} />
         ))}
       </div>
-    </>
+    </div>
   );
 }

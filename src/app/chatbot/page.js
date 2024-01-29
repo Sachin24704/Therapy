@@ -60,9 +60,12 @@ const Chatbot = () => {
   return !authUser ? (
     <Loader />
   ) : (
-    <div>
-      <Dashboard isHome={false} />
-      <div className="flex-col bg-slate-600 min-h-screen ">
+    <div
+      className="bg-cover bg-center"
+      style={{ backgroundImage: 'url("/chatbot.jpg")' }}
+    >
+      <Dashboard isHome={false} bgColour={true} />
+      <div className="flex-col min-h-screen ">
         <div className="chat-container">
           {chat.map((chat, index) => {
             return <Chat key={index} props={chat} />;

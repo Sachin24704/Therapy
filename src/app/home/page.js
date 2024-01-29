@@ -37,14 +37,14 @@ const Home = () => {
         >
           <Dashboard isHome={true} bgColour={true}></Dashboard>
           <div className="min-h-screen bg-cover bg-center flex items-center justify-center text-black">
-            <div className="container flex-row mx-auto text-center">
+            <div className="container mb-16 flex-row mx-auto items-center text-center">
               <img
                 src="/logo2-removebg-preview.png"
                 alt="Zenexa Logo"
-                className="h-16 w-auto mx-auto"
+                className="h-24 w-auto mx-auto"
               />
 
-              <h1 className="text-4xl font-bold mt-4">ZenexA</h1>
+              <h1 className="text-6xl font-bold mt-4">ZenexA</h1>
               <p className="text-lg mt-2">
                 Bringing mental wellness to your fingertips
               </p>
@@ -61,7 +61,7 @@ const Home = () => {
             <div class="absolute -bottom-8 right-96 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
             <div class="absolute -bottom-8 left-96 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
             animation */}
-            <h2 className="text-3xl font-bold mb-4">About Us</h2>
+            <h2 className="text-3xl font-bold mb-16 mt-0">About Us</h2>
             {/* <p className="text-lg">
                At Zenexa, we believe that mental health is the most important
               aspect of a person's well-being. We are on a mission to combat the
@@ -73,7 +73,7 @@ const Home = () => {
                 <Image
                   src="/bg-image-2.1.jpg"
                   alt="effects of therapy"
-                  width={2100}
+                  width={1900}
                   height={200}
                   className="rounded-lg w-full h-full"
                 />
@@ -84,11 +84,7 @@ const Home = () => {
                   therapy and cutting-edge technology. In a world grappling with
                   rising mental health challenges, our expert psychologists
                   offer transformative sessions, while our AI chatbot provides a
-                  digital companion for moments of need. We're not just a mental
-                  health brand; we're architects of hope, crafting a new
-                  narrative for well-being in the face of increasing loneliness,
-                  burnouts, and unhappiness. Join us on this journey to
-                  rediscover joy, one conversation at a time.{" "}
+                  digital companion for moments of need.{" "}
                 </p>
                 <br />
                 <p className="text-lg text-left">
@@ -114,7 +110,7 @@ const Home = () => {
           style={{ backgroundImage: 'url("/bg-2.3.jpg")', opacity: 1 }}
         >
           <div className="container mx-auto text-center font-extrabold">
-            <h2 className="text-3xl font-extrabold mb-4">Our Features</h2>
+            <h2 className="text-3xl font-bold mb-4">Our Features</h2>
             <p className="text-lg">
               Explore the benefits of our therapy chatbot that provides
               personalized support and guidance, making your mental health
@@ -224,7 +220,7 @@ const Home = () => {
         {/* Section 5: B2B Services */}
         {/* <div className="min-h-screen bg-blue-500 flex items-center justify-center text-white"> */}
         <div
-          className="min-h-screen bg-cover bg-center mt-4 flex items-center justify-center text-black"
+          className="min-h-screen border bg-cover bg-center mt-4 flex items-center justify-center text-black"
           style={{ backgroundImage: 'url("/bg-image-3.1.jpgh")' }}
         >
           <div className="container mx-auto text-center">
