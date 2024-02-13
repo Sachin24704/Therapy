@@ -1,8 +1,15 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
 import { useAuth } from "@/firebase/auth";
 
 export default function Dashboard({ isHome, isTherapy, bgColour }) {
   const { isLoading, authUser, signout } = useAuth();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <nav
@@ -14,28 +21,74 @@ export default function Dashboard({ isHome, isTherapy, bgColour }) {
             Zenexa
           </a>
           {authUser ? (
-            <span className="text-lg font-semibold text-blue-900 ml-4">
+            <span className=" text-lg font-semibold text-blue-900 ml-4 hidden md:inline-block">
               Welcome, {authUser?.username}
             </span>
           ) : null}
         </div>
-        <div className="hidden lg:flex space-x-4  flex-row items-center">
+        {/* signout button at start when screen is small */}
+        <div className="lg:hidden">
+          {authUser ? (
+            <button
+              className="bg-blue-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+              onClick={signout}
+            >
+              Sign Out
+            </button>
+          ) : (
+            <button className="bg-blue-500 hover:bg-red-600 text-white px-4 py-2 rounded">
+              <Link href="/login">Login</Link>
+            </button>
+          )}
+        </div>
+        <button
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          onClick={toggleMobileMenu}
+          aria-controls="navbar-default"
+          aria-expanded={isMobileMenuOpen ? "true" : "false"}
+        >
+          <span className="sr-only">
+            {isMobileMenuOpen ? "Close" : "Open main menu"}
+          </span>
+          <svg
+            className="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        {/* < div className="hidden lg:flex space-x-4  flex-row items-center"> */}
+        <div
+          className={`lg:flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 ${
+            isMobileMenuOpen ? "block" : "hidden"
+          }`}
+          id="navbar-default"
+        >
           {isHome ? (
             <div>
               <Link
-                className="p-4 text-blue-500 hover:underline font-bold"
+                className="block lg:inline-block p-4 text-blue-500 hover:underline font-bold"
                 href="/chatbot"
               >
                 Chatbot
               </Link>
-              <Link
+              {/* <Link
                 className=" p-4  text-blue-500 hover:underline font-bold"
                 href="/about"
               >
                 About
-              </Link>
+              </Link> */}
               <Link
-                className="p-4 text-blue-500 hover:underline font-bold"
+                className="block lg:inline-block p-4 text-blue-500 hover:underline font-bold"
                 href="/View"
               >
                 Therapist
@@ -49,12 +102,12 @@ export default function Dashboard({ isHome, isTherapy, bgColour }) {
               >
                 Home
               </Link>
-              <Link
+              {/* <Link
                 className="p-4 text-blue-500 hover:underline font-bold"
                 href="/chatbot"
               >
                 About
-              </Link>
+              </Link> */}
               <Link
                 className="p-4 text-blue-500 hover:underline font-bold"
                 href="/chatbot"
@@ -70,12 +123,12 @@ export default function Dashboard({ isHome, isTherapy, bgColour }) {
               >
                 Home
               </Link>
-              <Link
+              {/* <Link
                 className="p-4 text-blue-500 hover:underline font-bold"
                 href="/chatbot"
               >
                 About
-              </Link>
+              </Link> */}
               <Link
                 className="p-4 text-blue-500 hover:underline font-bold"
                 href="/View"
@@ -84,6 +137,9 @@ export default function Dashboard({ isHome, isTherapy, bgColour }) {
               </Link>
             </div>
           )}
+        </div>
+        {/* signout button at start when screen is large */}
+        <div className="hidden lg:block">
           {authUser ? (
             <button
               className="bg-blue-500 hover:bg-red-600 text-white px-4 py-2 rounded"
