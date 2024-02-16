@@ -61,15 +61,17 @@ const Home = () => {
             <div class="absolute -bottom-8 right-96 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
             <div class="absolute -bottom-8 left-96 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
             animation */}
-            <h2 className="text-3xl font-bold mb-16 mt-0">About Us</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold mb-8 md:mb-16 mt-0">
+              About Us
+            </h2>
             {/* <p className="text-lg">
                At Zenexa, we believe that mental health is the most important
               aspect of a person's well-being. We are on a mission to combat the
               loneliness epidemic through therapy and make the world a better
               place. 
             </p> */}
-            <div className="flex">
-              <div className="">
+            <div className="flex flex-col lg:flex-row">
+              <div className="p-4 order-2 lg:order-1 mb-8 lg:mb-0 lg:mr-10">
                 <Image
                   src="/bg-image-2.1.jpg"
                   alt="effects of therapy"
@@ -79,7 +81,7 @@ const Home = () => {
                 />
               </div>
               <div className="ml-10">
-                <p className="text-lg text-left">
+                <p className="text-base md:text-lg lg:text-lg text-left mb-4 lg:mb-8">
                   Welcome to Zenexa, where we bridge the gap between traditional
                   therapy and cutting-edge technology. In a world grappling with
                   rising mental health challenges, our expert psychologists
@@ -87,14 +89,14 @@ const Home = () => {
                   digital companion for moments of need.{" "}
                 </p>
                 <br />
-                <p className="text-lg text-left">
+                <p className="text-base md:text-lg lg:text-lg text-left mb-4 lg:mb-8">
                   We're not just a mental health brand; we're architects of
                   hope, crafting a new narrative for well-being in the face of
                   increasing loneliness, burnouts, and unhappiness. Join us on
                   this journey to rediscover joy, one conversation at a time.{" "}
                 </p>
                 <br />
-                <p className="text-lg text-left">
+                <p className="text-base md:text-lg lg:text-lg text-left mb-4 lg:mb-8">
                   Zenexa – where understanding and innovation converge for your
                   peace of mind.
                 </p>
@@ -110,54 +112,64 @@ const Home = () => {
           style={{ backgroundImage: 'url("/bg-2.3.jpg")', opacity: 1 }}
         >
           <div className="container mx-auto text-center font-extrabold">
-            <h2 className="text-3xl font-bold mb-4">Our Features</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-3xl  font-bold mb-4">
+              Our Features
+            </h2>
             <p className="text-lg">
               Explore the benefits of our therapy chatbot that provides
               personalized support and guidance, making your mental health
               journey even more accessible and convenient.
             </p>
             <div className="container mx-auto text-left mt-6">
-              <h3 className="text-xl font-bold mb-2">
+              <h3 className="text-lg md:text-xl lg:text-xl font-bold mb-2">
                 Zenexa's Core Features:
               </h3>
 
               <ul className="list-disc pl-6">
                 <li className="mb-2">
-                  <strong>Personalized Therapy Sessions:</strong> Embark on a
-                  journey of self-discovery with our skilled psychologists. Our
-                  tailored sessions delve deep into your unique experiences,
-                  addressing not only mental health issues but also the
-                  pervasive challenges of loneliness. Gain profound insights and
-                  coping strategies for a fulfilling life.
+                  <strong className="text-base md:text-lg lg:text-xl">
+                    Personalized Therapy Sessions:
+                  </strong>{" "}
+                  Embark on a journey of self-discovery with our skilled
+                  psychologists. Our tailored sessions delve deep into your
+                  unique experiences, addressing not only mental health issues
+                  but also the pervasive challenges of loneliness. Gain profound
+                  insights and coping strategies for a fulfilling life.
                 </li>
 
                 <li className="mb-2">
-                  <strong>AI Companion for Support:</strong> Experience a
-                  constant source of support with our AI chatbot. Available
-                  round the clock, it provides more than just a listening ear—it
-                  offers insights and coping mechanisms, ensuring you're never
-                  alone in navigating the complexities of mental health
-                  challenges and loneliness.
+                  <strong className="text-base md:text-lg lg:text-xl">
+                    AI Companion for Support:
+                  </strong>{" "}
+                  Experience a constant source of support with our AI chatbot.
+                  Available round the clock, it provides more than just a
+                  listening ear—it offers insights and coping mechanisms,
+                  ensuring you're never alone in navigating the complexities of
+                  mental health challenges and loneliness.
                 </li>
 
                 <li className="mb-2">
-                  <strong>B2B Mental Health Services:</strong> Prioritize the
-                  well-being of your workforce with our specialized B2B
-                  services. We understand the intricacies of workplace dynamics
-                  and tailor our programs to create a mentally resilient
-                  environment, fostering productivity, satisfaction, and overall
-                  success.
+                  <strong className="text-base md:text-lg lg:text-xl">
+                    B2B Mental Health Services:
+                  </strong>{" "}
+                  Prioritize the well-being of your workforce with our
+                  specialized B2B services. We understand the intricacies of
+                  workplace dynamics and tailor our programs to create a
+                  mentally resilient environment, fostering productivity,
+                  satisfaction, and overall success.
                 </li>
 
                 <li className="mb-2">
-                  <strong>Innovative Well-Being Solutions:</strong> Explore the
-                  intersection of tradition and technology in our approach to
-                  mental health. Our innovative solutions blend ancient wisdom
-                  with modern techniques, providing a fresh outlook on life.
-                  Address burnouts, mental health issues, loneliness, and
-                  unhappiness through a tech-driven strategy that adapts to your
-                  unique needs. Zenexa – where innovation meets understanding
-                  for a healthier, happier you.
+                  <strong className="text-base md:text-lg lg:text-xl">
+                    Innovative Well-Being Solutions:
+                  </strong>{" "}
+                  Explore the intersection of tradition and technology in our
+                  approach to mental health. Our innovative solutions blend
+                  ancient wisdom with modern techniques, providing a fresh
+                  outlook on life. Address burnouts, mental health issues,
+                  loneliness, and unhappiness through a tech-driven strategy
+                  that adapts to your unique needs. Zenexa – where innovation
+                  meets understanding for a healthier, happier you.
                 </li>
               </ul>
             </div>
@@ -167,18 +179,20 @@ const Home = () => {
         {/* Section 4: Book a Session */}
         <div className="min-h-screen  mt-4 flex items-center justify-center text-white">
           <div className="container mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Book a Session</h2>
-            <p className="text-lg">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold mb-4">
+              Book a Session
+            </h2>
+            <p className="text-base md:text-lg lg:text-lg">
               Ready to take the next step towards a healthier mind? Book a
               session with our experienced therapists and start your journey
               towards mental well-being.
             </p>
             <div className="container mx-auto text-left mt-8">
-              <h3 className="text-2xl font-bold mb-4">
+              <h3 className="text-xl md:text-2xl lg:text-2xl font-bold mb-4">
                 Schedule a Call with Zenexa:
               </h3>
 
-              <p className="mb-4">
+              <p className="mb-4 text-sm md:text-base lg:text-base">
                 When the weight of the world feels like too much to bear,
                 remember that seeking help is an act of courage, not weakness.
                 Our trained therapists at Zenexa are here to be your guides,
@@ -187,7 +201,7 @@ const Home = () => {
                 reach out; it's okay to admit that you need support.
               </p>
 
-              <p className="mb-4">
+              <p className="mb-4 text-sm md:text-base lg:text-base">
                 Depression and other mental illnesses are battles that require
                 warriors, and we're here to stand by your side. Our therapists
                 bring a wealth of experience, empathy, and innovative approaches
@@ -196,7 +210,7 @@ const Home = () => {
                 storms within.
               </p>
 
-              <p className="mb-4">
+              <p className="mb-4 text-sm md:text-base lg:text-base">
                 So, when the shadows of despair loom large, when the weight of
                 sadness becomes too much to bear alone, don't hesitate to
                 schedule a call with us. Together, we'll navigate the labyrinth
@@ -224,18 +238,20 @@ const Home = () => {
           style={{ backgroundImage: 'url("/bg-image-3.1.jpgh")' }}
         >
           <div className="container mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">B2B Services</h2>
-            <p className="text-lg">
+            <h2 className="p-4 text-2xl md:text-3xl lg:text-3xl font-bold mb-4">
+              B2B Services
+            </h2>
+            <p className="text-base md:text-lg lg:text-lg">
               Elevate your company's productivity and foster employee happiness
               with our specialized therapy and performance coaching services
               designed for businesses.
             </p>
             <div className="container mx-auto text-left mt-8">
-              <h3 className="text-2xl font-bold mb-4">
+              <h3 className="text-xl md:text-2xl lg:text-2xl font-bold mb-4">
                 Unlock Potential with Zenexa's B2B Services:
               </h3>
 
-              <p className="mb-4">
+              <p className="mb-4 text-sm md:text-base lg:text-base">
                 In the realm of corporate well-being, Zenexa offers more than
                 just therapy for your workforce. We bring an added bonus –
                 performance coaching and morale-boosting sessions that empower
@@ -243,7 +259,7 @@ const Home = () => {
                 about unlocking the full potential of your workforce.
               </p>
 
-              <p className="mb-4">
+              <p className="mb-4 text-sm md:text-base lg:text-base">
                 Studies affirm the transformative impact: a positive and
                 stress-free workforce engaged in regular therapy sessions is
                 more productive and experiences reduced turnover. Imagine a
@@ -251,14 +267,14 @@ const Home = () => {
                 find contentment in their roles.
               </p>
 
-              <p className="mb-4">
+              <p className="mb-4 text-sm md:text-base lg:text-base">
                 This investment in therapy isn't just an expense; it's a
                 strategic move that yields exponential results in profits and
                 productivity. A content and resilient workforce becomes a magnet
                 for talent, turning your company into an employer of choice.
               </p>
 
-              <p className="mb-4">
+              <p className="mb-4 text-sm md:text-base lg:text-base">
                 At Zenexa, we're not just reshaping the narrative of corporate
                 success; we're redefining it. Let's build a workplace where
                 well-being is not a checkbox but the cornerstone of a thriving,
