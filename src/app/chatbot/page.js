@@ -65,7 +65,7 @@ const Chatbot = () => {
       style={{ backgroundImage: 'url("/chatbot.jpg")' }}
     >
       <Dashboard isHome={false} bgColour={true} />
-      <div className="flex-col min-h-screen ">
+      <div className="flex flex-col min-h-screen ">
         <div className="chat-container">
           {chat.map((chat, index) => {
             return <Chat key={index} props={chat} />;
@@ -86,7 +86,7 @@ const Chatbot = () => {
           <div className="think">{thinking ? "Thinking..." : ""}</div>
           <form className="flex items-center" onSubmit={handleSubmit}>
             <input
-              className="flex-1 bg-gray-100 rounded-full px-4 py-2 focus:outline-none"
+              className="text-black flex-1 bg-gray-100 rounded-full px-4 py-2 focus:outline-none mb-2 md:mb-0"
               type="text"
               placeholder="Type your message..."
               value={msg}
