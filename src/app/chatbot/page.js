@@ -68,11 +68,13 @@ const Chatbot = () => {
     >
       <Dashboard isHome={false} bgColour={true} />
       <div className="flex flex-col min-h-screen ">
-        <div className="chat-container">
-          {chat.map((chat, index) => {
-            return <Chat key={index} props={chat} />;
-          })}
-          {/* <Chat /> */}
+        <div>
+          <div className="chat-container mb-32">
+            {chat.map((chat, index) => {
+              return <Chat key={index} props={chat} />;
+            })}
+            {/* <Chat /> */}
+          </div>
         </div>
         {/* <div className="p-2 mb-0 fixed">
         <form className="w-full" onSubmit={handleSubmit}>
@@ -86,9 +88,10 @@ const Chatbot = () => {
       </div> */}
         <div className="fixed bottom-0 left-0 w-full bg-white p-4 shadow-md">
           <div className="think">{thinking ? "Thinking..." : ""}</div>
-          <form className="flex items-center" onSubmit={handleSubmit}>
-            <input
-              className="text-black flex-1 bg-gray-100 rounded-full px-4 py-2 focus:outline-none mb-2 md:mb-0"
+          <form className=" flex items-center" onSubmit={handleSubmit}>
+            <textarea
+              rows="1"
+              className="text-black   flex-1 bg-gray-100 rounded-full px-4 py-2 focus:outline-none mb-2 md:mb-0 "
               type="text"
               placeholder="Type your message..."
               value={msg}
