@@ -99,7 +99,7 @@ export default function Dashboard({ isHome, isTherapy, bgColour }) {
               ) : isTherapy ? (
                 <div>
                   <Link
-                    className="p-4 text-blue-500 hover:underline font-bold"
+                    className="block lg:inline-block p-4 text-blue-500 hover:underline font-bold"
                     href="/home"
                   >
                     Home
@@ -111,7 +111,7 @@ export default function Dashboard({ isHome, isTherapy, bgColour }) {
                 About
               </Link> */}
                   <Link
-                    className="p-4 text-blue-500 hover:underline font-bold"
+                    className="block lg:inline-block p-4 text-blue-500 hover:underline font-bold"
                     href="/chatbot"
                   >
                     Chatbot
@@ -120,7 +120,7 @@ export default function Dashboard({ isHome, isTherapy, bgColour }) {
               ) : (
                 <div>
                   <Link
-                    className="p-4 text-blue-500 hover:underline font-bold"
+                    className="block lg:inline-block p-4 text-blue-500 hover:underline font-bold"
                     href="/home"
                   >
                     Home
@@ -132,7 +132,7 @@ export default function Dashboard({ isHome, isTherapy, bgColour }) {
                 About
               </Link> */}
                   <Link
-                    className="p-4 text-blue-500 hover:underline font-bold"
+                    className="block lg:inline-block p-4 text-blue-500 hover:underline font-bold"
                     href="/View"
                   >
                     Therapist

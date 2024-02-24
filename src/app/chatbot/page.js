@@ -1,7 +1,7 @@
 "use client";
 import react from "react";
 import Dashboard from "@/components/dashboard";
-import { useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useAuth } from "@/firebase/auth";
 import Chat from "@/components/Chat";
 import { useRouter } from "next/navigation";
@@ -12,6 +12,7 @@ const Chatbot = () => {
   const { isLoading, authUser, signout } = useAuth();
   // for auth
   const router = useRouter();
+  const chatContainerRef = useRef(null);
 
   useEffect(() => {
     if (!isLoading && !authUser) {
@@ -25,6 +26,7 @@ const Chatbot = () => {
       content: "Hi...how are you? Hope you are taking care of your feelings",
     },
   ]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     var responseData = "";
