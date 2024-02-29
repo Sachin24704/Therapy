@@ -42,7 +42,7 @@ export default function List() {
   ) : (
     <div
       className="bg-cover bg-center"
-      style={{ backgroundImage: 'url("/view-bg.jpg")', opacity: 1 }}
+      style={{ backgroundImage: 'url("/bg-abstract.jpg")', opacity: 1 }}
     >
       <Dashboard isTherapy={true} bgColour={true} />
       <div className="border flex flex-col bg-blue">
