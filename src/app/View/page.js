@@ -9,6 +9,7 @@ import Listing from "@/components/Listing";
 import Dashboard from "@/components/dashboard";
 
 export default function List() {
+  const payment_btn_id = ["pl_NhoxWjpFb0a24k", "pl_Nhp9k5DIM9O3k5"];
   const [doctorProfiles, setDoctorProfiles] = useState([]);
   const router = useRouter();
   const { isLoading, authUser, signout } = useAuth();
@@ -47,7 +48,11 @@ export default function List() {
       <Dashboard isTherapy={true} bgColour={true} />
       <div className="border flex flex-col bg-blue">
         {doctorProfiles.map((profile) => (
-          <Listing key={profile.id} profile={profile} />
+          <Listing
+            key={profile.id}
+            profile={profile}
+            payment_btn_id={"pl_Nhp9k5DIM9O3k5"}
+          />
         ))}
       </div>
     </div>

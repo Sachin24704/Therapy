@@ -3,8 +3,9 @@ import Link from "next/link";
 import React from "react";
 import Popup from "reactjs-popup";
 import { useRouter } from "next/navigation";
+import RazorpayPaymentButton from "./RazorpayPaymentButton";
 
-export default function Listing({ profile }) {
+export default function Listing({ profile, payment_btn_id }) {
   const router = useRouter();
   return (
     <div className="flex flex-col md:flex-row lg:flex-row p-10 border rounded border-cyan-600 shadow-md mb-4">
@@ -40,7 +41,20 @@ export default function Listing({ profile }) {
         {/* <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
           Schedule Call Now
         </button> */}
-        <Popup
+        {/* <form>
+          <script
+            src="https://checkout.razorpay.com/v1/payment-button.js"
+            data-payment_button_id="pl_Nhp9k5DIM9O3k5"
+            async
+          >
+            {" "}
+          </script>{" "}
+        </form> */}
+
+        <RazorpayPaymentButton payment_btn_id={payment_btn_id} />
+        {/* <RazorpayPaymentButton payment_btn_id="pl_NhoxWjpFb0a24k" /> */}
+
+        {/* <Popup
           trigger={
             <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-2 rounded">
               Schedule Call Now
@@ -51,7 +65,7 @@ export default function Listing({ profile }) {
         >
           {(close) => (
             <div className="p-8 bg-white rounded shadow-lg">
-              {/* Style the iframe with Tailwind CSS classes */}
+              
               <iframe
                 src={profile.calendy}
                 // "https://calendly.com/sachin-123-kumar-456/30min"
@@ -65,7 +79,7 @@ export default function Listing({ profile }) {
               </button>
             </div>
           )}
-        </Popup>
+        </Popup> */}
         <button
           className="bg-blue-500 hover:bg-blue-600 text-white ml-4 font-semibold py-1 px-2 rounded"
           onClick={() => {
